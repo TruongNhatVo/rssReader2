@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar  color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Trang chủ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="posts, else loading">
+    <ion-item *ngFor="let post of posts" color="light">
+      <ion-thumbnail item-start>
+        <img src="{{post.thumbnail || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz17UsjB45DjoCYPm_duqhSyKHOU3vRkv4VY6_1I420xuwfVVHvA'}}">
+      </ion-thumbnail>
+      <h2>{{post.title}}</h2>
+      <p>{{ post.description| trimHtml }}</p>
+      <button ion-button clear item-end>XEM</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ng-template #loading>Đang tải dữ liệu</ng-template>
